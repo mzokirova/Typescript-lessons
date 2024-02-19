@@ -1,25 +1,33 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2020", // avoid downleveling , we can choose our code will be run in which environment 
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+    "module": "ESNext", //provides compiler, it controls module format of JS during compilation
+    "skipLibCheck": true,//skip type checking of declaration files
+    /* "noEmitOnError": false, don't emit JS codes if error reported,
+      watch environment ,default:false; */
 
+
+    // Type checking
+    "noImplicitAny": true, //reports error with implied any types
+    "strictNullChecks": true, //default false, it shows error if you used null or undefined where concrete value expected
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "moduleResolution": "bundler", //never requires relative paths and file extensions in importing,supports all package json import exports
+    "allowImportingTsExtensions": true,//allows TS files imports in each other with TS extensions
+    "resolveJsonModule": true,//by default TS doesn't support json files, this module allows imports with .json extension
+    "isolatedModules": true,//most transpilers can operate only single file, and they cannot understand full type system, this cause 
+    //runtime error with namespaces and const enum, this module tells TS to warn coder to avoid incorrent intrpereted codes
+    "noEmit": true, //it handle converting TS files to file which can run inside JS
+    "jsx": "react-jsx",// emit js files with jsx changed _jsx calls
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "strict": true, //wide range of type checking 
+    "noUnusedLocals": true, //reports errors on unused local variables
+    "noUnusedParameters": true, //Report errors on unused parameters in functions.
+    "noFallthroughCasesInSwitch": true //reports error in cases , checks non empty cases , and require either break,throw or return
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"], //specifies array of filenames or patterns to include program
+  "references": [{ "path": "./tsconfig.node.json" }]// wayto structure
+  //TS program into smaller pieces.references improves build and editor interaction times
 }
