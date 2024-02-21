@@ -1,0 +1,66 @@
+Narrowing
+narrowing down type of variable within specific condition or certain code
+
+2.within that block.
+For example, if a variable is initially of type string | number, after a type check, TypeScript may narrow it down to just string or number based on the condition.
+
+3.Discriminated unions (tagged unions) which allows create type that
+can hold different values,but where TS can determine which specific value 
+contained union based common property shared by all TypeScript
+e.g
+type Shape = Circle | Square;
+
+interface Circle {
+    kind: "circle";
+    radius: number;
+}
+
+interface Square {
+    kind: "square";
+    sideLength: number;
+}
+
+function area(shape: Shape): number {
+    switch (shape.kind) {
+        case "circle":
+            return Math.PI * shape.radius ** 2;
+        case "square":
+            return shape.sideLength ** 2;
+    }
+}
+
+
+4.Call signatures. In function expressions properties cannot be declared,
+to describe something with callable properties, should write call signatures
+type AddFunction = (a: number, b: number) => number;
+const add: AddFunction = (num1, num2) => {
+    return num1 + num2;
+};
+we wrote type and there is return value instead of void
+
+5.Generics are all about relating two or more values with same type
+no all function can be generic, always should consider Type parameters appears twice
+
+6.Function overload make our code adaptable.flexible. For example
+some function can be called with different types and different counts.
+so we can specify a function that can be called in different ways by writing overload functions
+
+7.Implementation signature is actual code that called when function invoked following overload 
+signatures. after them
+
+!!!Implementation and overload signature must be matched 
+
+8.void returns when function doesnt have return value
+
+9.never appears when TS defines there is nothing left in union,never oberved
+
+10.Global function always can be called and return any
+
+11.Rest Parameters in function can handle as many arguments as we want.
+Overloads and rest parameters make functions that can accept variety of 
+variables ,arguments counts,
+
+12.void is about absences of something rather than its presence
+
+13.
+
