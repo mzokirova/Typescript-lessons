@@ -32,3 +32,8 @@ function draw(circle: Colorful & Circle) {
 
 
 
+tuples is a type of array that knows how many elements contain, and exactly its types in specific positions
+
+
+
+

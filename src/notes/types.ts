@@ -6,7 +6,7 @@ let oil: string | number; //unions
 type User = {
     name: number | string;
 }
-function callUser=(props: User)=>{
+function callUser=(props: User) => {
     console.log(`Hello ${props.name} `)
 }
 callUser(34);
@@ -41,3 +41,6 @@ enum Direction {
 // contants.Numeric enums are auto incremented
 
 // string enums each member has to strict initializer string
+
+
+// mapped types modifiers readonly and optional
