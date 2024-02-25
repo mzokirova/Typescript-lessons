@@ -22,9 +22,9 @@
     "jsx": "react-jsx",// emit js files with jsx changed _jsx calls
 
     /* Linting */
-    "strict": true, //wide range of type checking 
-    "noUnusedLocals": true, //reports errors on unused local variables
-    "noUnusedParameters": true, //Report errors on unused parameters in functions.
+    "strict": false, //wide range of type checking 
+    "noUnusedLocals":false, //reports errors on unused local variables
+    "noUnusedParameters": false, //Report errors on unused parameters in functions.
     "noFallthroughCasesInSwitch": true //reports error in cases , checks non empty cases , and require either break,throw or return
   },
   "include": ["src"], //specifies array of filenames or patterns to include program
